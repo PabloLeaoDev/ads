@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luigi Pizza's</title>
+</head>
+<body>
+    <h1>Pedido de Pizza</h1>
+    <form action="teste.jsp" method="post">
+        <span>Nome: </span><input type="text" name="nome"><br><br>
+        <span>Email: </span><input type="email" name="email" id="iEmail">
+        <br><br>
+        <span>Tamanho: </span>
+        <input type="radio" name="tamanho" value="g" checked><span>Grande</span>
+        <input type="radio" name="tamanho" value="m"><span>Médio</span>
+        <input type="radio" name="tamanho" value="p"><span>Pequeno</span>
+        <br><br>
+
+        <span>Sabor: </span>
+        <select name="sabor" id="pizzas">
+            <option value="atum">Atum</option>
+            <option value="portuguesa">Portuquesa</option>
+            <option value="calabresa">Calabresa</option>
+        </select>
+        <br><br>
+
+        <span>Adicionais: </span>
+        <input type="checkbox" name="borda" id="sim"><span>Borda</span>
+        <input type="checkbox" name="queijo" id="sim"><span>Queijo Extra</span>
+        <br><br>
+
+        <span>Data da Entrega: </span> <input type="date" name="dataEntrega" id="entrega">
+        <br><br>
+        <textarea name="msg" id="iMsg" cols="30" rows="10" placeholder="Deixe aqui seu comentário"></textarea>
+        <br><br>
+        <input type="submit" value="Enviar Pedido">
+    </form>
+</body>
+</html>
