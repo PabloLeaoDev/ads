@@ -25,3 +25,8 @@ class Mob(pygame.sprite.Sprite):
             direction = direction.normalize()
         self.rect.x += direction.x * self.speed
         self.rect.y += direction.y * self.speed
+        
+    def lose_health(self, damage):
+        self.health -= damage
+        if self.health <= 0:
+            self.kill()

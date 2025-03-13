@@ -7,7 +7,7 @@ from mob import Mob
 # Inicializando o Pygame
 pygame.init()
 screen = pygame.display.set_mode((config.WIDTH, config.HEIGHT))
-pygame.display.set_caption("Survival Blitz")
+pygame.display.set_caption('Survival Blitz')
 clock = pygame.time.Clock()
 
 # Grupos de sprites
@@ -40,7 +40,7 @@ def game_loop():
             if event.type == pygame.MOUSEBUTTONDOWN and pygame.mouse.get_pressed()[0]:
                 player.shoot(bullets, all_sprites)
         
-        # Atualiza o tempo ddddddddde jogoa
+        # Atualiza o tempo de jogo
         elapsed_time = (pygame.time.get_ticks() - start_time) / 1000  # Em segundos
         
         # Lógica de spawn de mobs
@@ -57,12 +57,13 @@ def game_loop():
         bullets.update()  # Atualiza as balas
         for mob in mobs:
             mob.update(player)  # passsa o jogador como argumento para os mobs
-
         
         # Checar colisões (balas x mobs)
         for bullet in bullets:
-            hit_mobs = pygame.sprite.spritecollide(bullet, mobs, True)
+            hit_mobs = pygame.sprite.spritecollide(bullet, mobs, False)
             if hit_mobs:
+                for mob in mobs:
+                    mob.lose_health(1)
                 bullet.kill()
                 
         # Checar colisão entre mobs e jogador

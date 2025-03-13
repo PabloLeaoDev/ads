@@ -7,13 +7,13 @@ PLAYER_SPEED = 5
 BULLET_SPEED = 10
 BULLET_DELAY = 300  # Delay entre tiros (ms)
 MOB_SPAWN_TIME = {  # Tempo de spawn para cada tipo de mob (ms)
-    "normal": 2000,
-    "fast": 1500,
+    "normal": 1500,
+    "fast": 2000,
     "tank": 3000 
 }
 MOB_SPAWN_START = {  # Tempo para iniciar o spawn de cada tipo de mob (s)
     "normal": 0,
-    "fast": 15,
-    "tank": 30
+    "fast": 10,
+    "tank": 20
 }
 SAFE_SPAWN_DISTANCE = 300  # Distância segura para spawn de mobs em relação ao jogador
