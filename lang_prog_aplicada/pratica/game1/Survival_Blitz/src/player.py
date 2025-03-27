@@ -7,6 +7,10 @@ class Player(pygame.sprite.Sprite):
         super().__init__()
         self.image = pygame.Surface((40, 40))
         self.image.fill((0, 128, 255))
+        
+        # self.image = pygame.image.load("assets/player.png").convert_alpha()
+        # self.image = pygame.transform.scale(self.image, (40, 40))  # Ajusta tamanho se necessário
+        
         self.rect = self.image.get_rect(center=(config.WIDTH // 2, config.HEIGHT // 2))
         self.speed = config.PLAYER_SPEED
         self.last_shot = pygame.time.get_ticks()
@@ -23,14 +27,6 @@ class Player(pygame.sprite.Sprite):
             self.rect.x += self.speed
         
         self.rect.clamp_ip(pygame.Rect(0, 0, config.WIDTH, config.HEIGHT))
-
-    # def shoot(self, bullets_group, all_sprites):
-    #     now = pygame.time.get_ticks()
-    #     if now - self.last_shot > config.BULLET_DELAY:
-    #         bullet = Bullet(self.rect.centerx, self.rect.top)
-    #         bullets_group.add(bullet)
-    #         all_sprites.add(bullet)
-    #         self.last_shot = now
     
     def shoot(self, bullets_group, all_sprites):
         now = pygame.time.get_ticks()

@@ -7,9 +7,19 @@ class Mob(pygame.sprite.Sprite):
         super().__init__()
         self.type = mob_type
         self.speed = 2 if mob_type == "normal" else (4 if mob_type == "fast" else 1)
-        self.health = 3 if mob_type == "normal" else (1 if mob_type == "fast" else 5)
+        self.health = 2 if mob_type == "normal" else (1 if mob_type == "fast" else 5)
         self.image = pygame.Surface((30, 30))
         self.image.fill((255, 0, 0) if mob_type == "normal" else (0, 255, 0) if mob_type == "fast" else (128, 0, 128))
+        
+        # if mob_type == "normal":
+        #     self.image = pygame.image.load("assets/mob_normal.png").convert_alpha()
+        # elif mob_type == "fast":
+        #     self.image = pygame.image.load("assets/mob_fast.png").convert_alpha()
+        # elif mob_type == "tank":
+        #     self.image = pygame.image.load("assets/mob_tank.png").convert_alpha()
+
+        # self.image = pygame.transform.scale(self.image, (30, 30))  # Ajusta tamanho se necessário
+
         
         # Garante que o spawn não seja perto do jogador
         while True:
