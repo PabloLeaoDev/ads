@@ -6,7 +6,8 @@ class Mob(pygame.sprite.Sprite):
     def __init__(self, mob_type):
         super().__init__()
         self.type = mob_type
-        self.speed = 2 if mob_type == 'normal' else (4 if mob_type == 'fast' else 1)
+        # self.speed = 2 if mob_type == 'normal' else (4 if mob_type == 'fast' else 1)
+        self.speed = 0.3
         self.health = 2 if mob_type == 'normal' else (1 if mob_type == 'fast' else 5)
         self.width = 60
         self.height = 60

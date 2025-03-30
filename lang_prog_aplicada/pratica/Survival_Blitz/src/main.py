@@ -4,6 +4,7 @@ import config
 from player import Player
 from mob import Mob
 from menu import Menu, GameOverMenu
+from utils.sounds import init_sound
 
 def initialize_game():
     pygame.init()
@@ -11,6 +12,7 @@ def initialize_game():
     background = pygame.image.load('src/assets/background.jpg').convert()
     pygame.display.set_caption('Survival Blitz')
     clock = pygame.time.Clock()
+    
     return screen, background, clock
 
 def setup_game():
@@ -70,7 +72,7 @@ def game_loop(screen, background, clock):
                 decrease_spawn_time_mobs(config.MOB_SPAWN_TIME)
                 update_time_for_next_session(index, flagSpawnTimeDecrease, next_session_time)
             
-        if min_time >= 1 and sec_time >= 30:
+        if min_time >= 1:
             return True, time_str
         
         time_surface = font.render(time_str, True, config.WHITE)
@@ -116,12 +118,19 @@ def main():
     menu = Menu(screen)
     
     while True:
+        init_sound('menu_soundtrack')
         action = menu.run()
         if action == 'play':
+            init_sound('survive_soundtrack')
             win, survival_time = game_loop(screen, background, clock)
+            if not win:
+                init_sound('game_over', repeat=1)
+            else:
+                init_sound('victory', repeat=1)
             game_over_menu = GameOverMenu(screen, win, survival_time)
             action = game_over_menu.run()
             if action == 'menu':
+                init_sound('menu_soundtrack')
                 continue
 
 if __name__ == '__main__':

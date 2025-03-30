@@ -2,6 +2,7 @@ import pygame
 import math
 import config
 from bullet import Bullet
+from utils.sounds import init_sound
 
 class Player(pygame.sprite.Sprite):
     def __init__(self):
@@ -45,4 +46,5 @@ class Player(pygame.sprite.Sprite):
             bullet = Bullet(self.rect.centerx, self.rect.centery, mouse_x, mouse_y)
             bullets_group.add(bullet)
             all_sprites.add(bullet)
+            init_sound('gunshot', repeat=1, effect=True)
             self.last_shot = now

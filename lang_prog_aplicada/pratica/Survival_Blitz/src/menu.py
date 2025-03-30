@@ -66,10 +66,10 @@ class Menu:
             self.screen.blit(title_surface, title_rect)
             
             instructions = [
-                'Sobreviva por 1 minuto e meio contra hordas de inimigos!',
+                'Sobreviva por 1 minuto contra hordas de zumbis!',
                 'WASD ou Setas: Movimentação',
                 'Mouse: Atirar na direção do cursor',
-                'Inimigos: Verde (Normal), Vermelho (Rápido), Roxo (Tanque)'
+                'Zumbis: Verde (Normal), Vermelho (Rápido), Roxo (Tanque)'
             ]
             
             for i, line in enumerate(instructions):
