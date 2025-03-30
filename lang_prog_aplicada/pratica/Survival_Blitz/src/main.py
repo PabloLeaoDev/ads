@@ -5,11 +5,12 @@ from player import Player
 from mob import Mob
 from menu import Menu, GameOverMenu
 from utils.sounds import init_sound
+from utils.path import resource_path
 
 def initialize_game():
     pygame.init()
     screen = pygame.display.set_mode((config.WIDTH, config.HEIGHT))
-    background = pygame.image.load('src/assets/background.jpg').convert()
+    background = pygame.image.load(resource_path('assets/background.jpg')).convert()
     pygame.display.set_caption('Survival Blitz')
     clock = pygame.time.Clock()
     

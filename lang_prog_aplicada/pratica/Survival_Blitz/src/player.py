@@ -3,12 +3,13 @@ import math
 import config
 from bullet import Bullet
 from utils.sounds import init_sound
+from utils.path import resource_path
 
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
 
-        self.original_image = pygame.image.load("src/assets/player.png").convert_alpha() 
+        self.original_image = pygame.image.load(resource_path('assets/player.png')).convert_alpha() 
         self.original_image = pygame.transform.scale(self.original_image, (60, 60)) 
         self.image = self.original_image 
         self.rect = self.image.get_rect(center=(config.WIDTH // 2, config.HEIGHT // 2))

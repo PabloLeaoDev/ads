@@ -1,13 +1,14 @@
 import pygame
 import math
 import config
-            
+from utils.path import resource_path
+
 class Bullet(pygame.sprite.Sprite):
     def __init__(self, x, y, target_x, target_y):
         super().__init__()
         self.width = 15
         self.height = self.width / 1.82
-        self.original_image = pygame.image.load('src/assets/shot.png').convert_alpha()
+        self.original_image = pygame.image.load(resource_path('assets/shot.png')).convert_alpha()
         self.original_image = pygame.transform.scale(self.original_image, (self.width, self.height))
         self.image = self.original_image  
         self.rect = self.image.get_rect(center=(x, y))
